@@ -19,6 +19,10 @@
 		margin-bottom: 80px;
 	}
 
+	.posts .widget-area {
+		margin-bottom: 20px;
+	}
+
 	.flexible-widgets,
 	.flexible-widgets .featured-content.widget .widget-wrap {
 		margin-left: -10px;
@@ -58,8 +62,10 @@
  * ========================================================================== */
 
 .front-page-1 {
-	margin: 40px auto;
+	margin: 30px auto 0;
 }
+
+
 
 /* Front Page 2
  * ========================================================================== */
@@ -132,13 +138,6 @@
 	position: relative;
 }
 
-
-/* Front Page 3
- * ========================================================================== */
-
-.front-page-3 .widget-area {
- 	margin-bottom: 60px;
-}
 
 
 /* Front Page 6
