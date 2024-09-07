@@ -1,0 +1,65 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+sitemap: false
+---
+
+@charset "utf-8";
+
+$serif-font-family: "Lora", serif;
+$sans-serif-font-family: "Helvetica Neue", sans-serif;
+$monospace-font-family: Menlo, Consolas, Monaco, "Courier New", Courier,
+  monospace;
+
+$base-font-family: $sans-serif-font-family;
+$headline-font-family: $sans-serif-font-family;
+$title-font-family: $sans-serif-font-family;
+$description-font-family: $sans-serif-font-family;
+$meta-font-family: $sans-serif-font-family;
+
+$accent-color: #3BBA86;
+
+
+@import "so-simple";
+
+
+body {
+	border-top: none;
+}
+
+.site-description {
+	font-size: 1rem;
+}
+
+.site-nav a {
+	text-transform: none;
+}
+
+.entries-list .entry-title, .page-title {
+	font-style: normal;
+	font-size: 3.6rem;
+	font-weight: 800;
+	line-height: 1.05;
+	letter-spacing: inherit;
+}
+
+.entries-list .entry {
+	margin-bottom: 5rem;
+}
+
+.entries-list .entry-meta {
+	font-style: normal;
+	font-size: 1rem;
+	color: rgb(96,96,96);
+}
+
+.entry-meta .entry-date, .entry-meta .read-time,
+.site-description {
+	font-style: normal;
+}
+
+@media ( min-width: 700px ) {
+
+	.entries-list .entry-title, .page-title {
+		font-size: 4.2rem;
+	}
+}

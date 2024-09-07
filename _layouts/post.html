@@ -1,18 +1,41 @@
-{% include header.html %}
+---
+layout: default
+---
 
-<!-- Post Content -->
-<div class="site-inner"><div class="wrap"><div class="content-sidebar-wrap"><main class="content">
-	<article class="post-111 post type-post status-publish format-standard has-post-thumbnail category-blog entry" itemscope="" itemtype="http://schema.org/CreativeWork">
-		<header class="entry-header">
-			<h1 class="entry-title" itemprop="headline">Achieving Product Market Fit</h1>
-			<p class="entry-meta"><span class="entry-categories"><a href="https://maker.designbybloom.co/category/blog/" rel="category tag">Blog</a> ·</span> <time class="entry-time" itemprop="datePublished" datetime="2016-02-10T17:42:28+00:00">February 10, 2016</time> </p>
-		</header>
-		<div class="entry-content" itemprop="text">
-			{{ content }}
-		</div>
-		<footer class="entry-footer">
-			<p class="entry-meta"><span class="entry-categories">Filed Under: <a href="https://maker.designbybloom.co/category/blog/" rel="category tag">Blog</a></span> </p>
-		</footer>
-	</article></main></div></div></div>
+<main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    {% include page-image.html %}
+    <div class="page-wrapper">
+      <header class="page-header">
+        {% assign title = page.title | markdownify | strip_html %}
+        {% if page.link %}
+          <h1 id="page-title" class="page-title p-name"><a href="{{ page.link }}">{{ title }} <span class="link-arrow">&rarr;</span></a></h1>
+        {% else %}
+          <h1 id="page-title" class="page-title p-name">{{ title }}</h1>
+        {% endif %}
+      </header>
 
-{% include footer.html %}
+      <div class="page-sidebar">
+        {% include page-author.html %}
+        {% include page-categories.html %}
+        {% include page-tags.html %}
+      </div>
+
+      <div class="page-content">
+        <div class="e-content">
+          {{ content }}
+        </div>
+
+        {% if page.share %}
+          {% include social-share.html %}
+        {% endif %}
+
+        {% if site.disqus.shortname %}
+          {% include disqus-comments.html %}
+        {% endif %}
+
+        {% include page-pagination.html %}
+      </div>
+    </div>
+  </article>
+</main>
