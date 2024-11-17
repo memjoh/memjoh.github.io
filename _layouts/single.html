@@ -2,12 +2,6 @@
 layout: default
 ---
 
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% elsif page.header.video.id and page.header.video.provider %}
-  {% include page__hero_video.html %}
-{% endif %}
-
 {% assign breadcrumbs_enabled = site.breadcrumbs %}
 {% if page.breadcrumbs != null %}
   {% assign breadcrumbs_enabled = page.breadcrumbs %}
@@ -27,8 +21,7 @@ layout: default
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
-    <div class="page__inner-wrap">
-      {% unless page.header.overlay_color or page.header.overlay_image %}
+    {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           {% if page.title -%}
           <h1 id="page-title" class="page__title" itemprop="headline">
@@ -36,8 +29,17 @@ layout: default
           </h1>
           {%- endif %}
           {% include page__meta.html %}
+          {% if page.excerpt %}<div class="description-text">{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}</div>{% endif %}
         </header>
-      {% endunless %}
+    {% endunless %}
+
+    {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+        {% include page__hero.html %}
+    {% elsif page.header.video.id and page.header.video.provider %}
+        {% include page__hero_video.html %}
+    {% endif %}
+
+    <div class="page__inner-wrap">
 
       <section class="page__content" itemprop="text">
         {% if page.toc %}
