@@ -29,7 +29,7 @@ layout: default
           </h1>
           {%- endif %}
           {% include page__meta.html %}
-          {% if page.excerpt %}<div class="description-text">{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}</div>{% endif %}
+          {% if page.excerpt %}<p class="description-text">{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}</p>{% endif %}
         </header>
     {% endunless %}
 
